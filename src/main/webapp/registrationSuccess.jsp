@@ -8,8 +8,8 @@
 </head>
 <body>
 <h1 style="text-align: center">Employee has been Successfully Registered!
-    <a href="/employeeSearch.jsp">Search Employees</a>
-    <a href="/employeeRegister.jsp">Register Employee</a>
+    <a href="employeeSearch.jsp">Search Employees</a>
+    <a href="employeeRegister.jsp">Register Employee</a>
 </h1>
 <%
     String employeeFirstName = request.getAttribute("firstName").toString();
