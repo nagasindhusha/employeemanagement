@@ -42,8 +42,6 @@ public class EmployeeRegistrationServlet extends HttpServlet {
 
     try {
       registerEmployeeId = employeeDAO.registerEmployee(employee);
-      Employee employee2 = employeeDAO.getEmployee(2);
-      System.out.println(employee2.getAddress() + employee2.getContact() + employee2.getFirstName());
     } catch (Exception e) {
       e.printStackTrace();
     }
