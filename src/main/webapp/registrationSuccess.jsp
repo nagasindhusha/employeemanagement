@@ -12,6 +12,7 @@
     <a href="employeeRegister.jsp">Register Employee</a>
 </h1>
 <%
+    String registerId = request.getAttribute("id").toString();
     String employeeFirstName = request.getAttribute("firstName").toString();
     String employeeLastName = request.getAttribute("lastName").toString();
     String employeeUsername = request.getAttribute("username").toString();
@@ -21,6 +22,10 @@
     out.println("<h2>Please verify the details</h2>");
 %>
 <table  style="width: 80%; margin-left: auto; margin-right: auto; ">
+    <tr>
+        <td><b>Id</b></td>
+        <td><%= registerId %></td>
+    </tr>
     <tr>
         <td><b>First Name</b></td>
         <td><%= employeeFirstName %></td>

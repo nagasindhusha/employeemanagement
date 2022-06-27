@@ -25,7 +25,7 @@ public class EmployeeDAO {
             "1234");
 
          // Step 2:Create a statement using connection object
-         PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USERS_SQL)) {
+         PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USERS_SQL, Statement.RETURN_GENERATED_KEYS)) {
       preparedStatement.setString(1, employee.getFirstName());
       preparedStatement.setString(2, employee.getLastName());
       preparedStatement.setString(3, employee.getUsername());
@@ -34,8 +34,12 @@ public class EmployeeDAO {
       preparedStatement.setString(6, employee.getContact());
 
       // Step 3: Execute the query or update query
-      result = preparedStatement.executeUpdate();
-
+      preparedStatement.executeUpdate();
+      ResultSet resultSet = preparedStatement.getGeneratedKeys();
+      if(resultSet.next()) {
+        result = resultSet.getInt(1);
+      }
+      return result;
     } catch (SQLException e) {
       // process sql exception
       printSQLException(e);

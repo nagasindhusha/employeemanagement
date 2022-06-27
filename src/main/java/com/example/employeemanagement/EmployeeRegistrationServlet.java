@@ -46,12 +46,12 @@ public class EmployeeRegistrationServlet extends HttpServlet {
       e.printStackTrace();
     }
     if (registerEmployeeId > 0) {
+      request.setAttribute("id", registerEmployeeId);
       request.setAttribute("firstName", employee.getFirstName());
       request.setAttribute("lastName", employee.getLastName());
       request.setAttribute("username", employee.getUsername());
       request.setAttribute("contact", employee.getContact());
       request.setAttribute("address", employee.getAddress());
-
       RequestDispatcher requestDispatcher = request.getRequestDispatcher("registrationSuccess.jsp");
       requestDispatcher.forward(request, response);
     }
